@@ -7,6 +7,8 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import ProfileScreen from "./screens/ProfileScreen";
 import SettingsScreen from "./screens/SettingsScreen";
 import {createDrawerNavigator} from "@react-navigation/drawer";
+import FixedDimensionBasics from "./screens/FixedDimensionsBasics";
+import Flex from "./screens/FlexExample";
 //Stack Navigator
 const HomeStack = createNativeStackNavigator();
 
@@ -35,12 +37,14 @@ const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Main" component={TabNavigator}/>
-        <Drawer.Screen name="Settings" component={SettingsScreen}/>
-      </Drawer.Navigator>
-    </NavigationContainer>
+      <NavigationContainer>
+        <Drawer.Navigator>
+          <Drawer.Screen name="Main" component={TabNavigator}/>
+          <Drawer.Screen name="Settings" component={SettingsScreen}/>
+          <Drawer.Screen name="FixedPx" component={FixedDimensionBasics}/>
+          <Drawer.Screen name="Flex" component={Flex}/>
+        </Drawer.Navigator>
+      </NavigationContainer>
   );
 }
 
