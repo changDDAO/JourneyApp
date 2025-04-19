@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 const FlexDirectionBasics = ()=>
 {
@@ -23,7 +23,28 @@ const PreviewLayout = ({
     selectedValue,
     setSelectedValue,
 })=>(
-  <View></View>
+  <View style={{padding: 10, flex: 1}}>
+      <Text style={styles.label}>{label}</Text>
+      <View style={styles.row}>
+          {values.map(value=>(
+              <TouchableOpacity
+                  key={value}
+                  onPress={()=>{setSelectedValue(value)}}
+                  style={[styles.button, selectedValue === value && styles.selected]}>
+                  <Text
+                      style={[
+                          styles.buttonLabel,
+                          selectedValue === value && styles.selectedLabel,
+                      ]}>
+                      {value}
+                  </Text>
+              </TouchableOpacity>
+          ))}
+      </View>
+      <View style={[styles.container, {[label]:selectedValue}]}>
+          {children}
+      </View>
+  </View>
 );
 
 const styles = StyleSheet.create({
