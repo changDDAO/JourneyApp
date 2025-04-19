@@ -10,6 +10,7 @@ import {createDrawerNavigator} from "@react-navigation/drawer";
 import FixedDimensionBasics from "./screens/FixedDimensionsBasics";
 import Flex from "./screens/FlexExample";
 import FlexDirection from "./screens/FlexDirection";
+import ImageScreen from "./screens/ImageScreen";
 //Stack Navigator
 const HomeStack = createNativeStackNavigator();
 
@@ -45,6 +46,7 @@ export default function App() {
           <Drawer.Screen name="FixedPx" component={FixedDimensionBasics}/>
           <Drawer.Screen name="Flex" component={Flex}/>
           <Drawer.Screen name="FlexDirection" component={FlexDirection}/>
+          <Drawer.Screen name="ImageScreen" component={ImageScreen}/>
         </Drawer.Navigator>
       </NavigationContainer>
   );
