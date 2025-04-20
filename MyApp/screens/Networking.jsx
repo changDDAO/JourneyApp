@@ -1,10 +1,20 @@
 import React, {useEffect} from 'react';
 import { View, Text } from 'react-native';
-import axios from "axios";
+import api from "../api/api";
 
 function NetworkingScreen(props) {
     useEffect(() => {
-        axios.get()
+        const fetchData = async() =>{
+            try{
+                const res = await api.get('/movies.json');
+                console.log("res : ", res);
+            }catch (e) {
+                console.error("api 호출 에러 : ", e);
+            }
+
+        }
+        fetchData();
+
     }, []);
  return (
   <View>
